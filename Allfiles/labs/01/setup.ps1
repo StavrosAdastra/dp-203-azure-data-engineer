@@ -77,7 +77,7 @@ foreach ($provider in $provider_list){
 
 # Generate unique random suffix
 [string]$suffix =  -join ((48..57) + (97..122) | Get-Random -Count 7 | % {[char]$_})
-Write-Host "Your randomly-generated suffix for Azure resources is $suffix"
+#Write-Host "Your randomly-generated suffix for Azure resources is $suffix"
 $resourceGroupName = "sk-ai-rg" # "dp203-$suffix"
 
 # Choose a random region
