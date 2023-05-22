@@ -82,19 +82,19 @@ $resourceGroupName = "sk-ai-rg" # "dp203-$suffix"
 
 # Choose a random region
 Write-Host "Finding an available region. This may take several minutes...";
-$delay = 0, 30, 60, 90, 120 | Get-Random
-Start-Sleep -Seconds $delay # random delay to stagger requests from multi-student classes
-$preferred_list = "westeurope" # "australiaeast","centralus","southcentralus","eastus2","northeurope","southeastasia","uksouth","westeurope","westus","westus2"
-$locations = Get-AzLocation | Where-Object {
-    $_.Providers -contains "Microsoft.Synapse" -and
-    $_.Providers -contains "Microsoft.Sql" -and
-    $_.Providers -contains "Microsoft.Storage" -and
-    $_.Providers -contains "Microsoft.Compute" -and
-    $_.Location -in $preferred_list
-}
-$max_index = $locations.Count - 1
-$rand = (0..$max_index) | Get-Random
-$Region = $locations.Get($rand).Location
+#$delay = 0, 30, 60, 90, 120 | Get-Random
+#Start-Sleep -Seconds $delay # random delay to stagger requests from multi-student classes
+#$preferred_list = "australiaeast","centralus","southcentralus","eastus2","northeurope","southeastasia","uksouth","westeurope","westus","westus2"
+#$locations = Get-AzLocation | Where-Object {
+#    $_.Providers -contains "Microsoft.Synapse" -and
+#    $_.Providers -contains "Microsoft.Sql" -and
+#    $_.Providers -contains "Microsoft.Storage" -and
+#    $_.Providers -contains "Microsoft.Compute" -and
+#    $_.Location -in $preferred_list
+#}
+#$max_index = $locations.Count - 1
+#$rand = (0..$max_index) | Get-Random
+$Region = "westeurope" #  $locations.Get($rand).Location
 
 # Test for subscription Azure SQL capacity constraints in randomly selected regions
 # (for some subsription types, quotas are adjusted dynamically based on capacity)
